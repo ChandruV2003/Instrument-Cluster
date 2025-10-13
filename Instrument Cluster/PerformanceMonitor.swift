@@ -33,9 +33,11 @@ final class PerformanceMonitor: ObservableObject {
         startMemoryMonitoring()
     }
     
-    func stopMonitoring() {
-        displayLink?.invalidate()
-        displayLink = nil
+    nonisolated func stopMonitoring() {
+        Task { @MainActor in
+            displayLink?.invalidate()
+            displayLink = nil
+        }
     }
     
     @objc private func displayLinkDidFire(_ displayLink: CADisplayLink) {
