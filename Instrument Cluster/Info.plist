@@ -24,11 +24,13 @@
     <key>UILaunchScreen</key>
     <dict/>
 
-    <!-- ---  Orientation lock (landscape only)  --- -->
+    <!-- ---  Orientation support (all orientations)  --- -->
     <key>UIRequiresFullScreen</key>
     <true/>
     <key>UISupportedInterfaceOrientations</key>
     <array>
+        <string>UIInterfaceOrientationPortrait</string>
+        <string>UIInterfaceOrientationPortraitUpsideDown</string>
         <string>UIInterfaceOrientationLandscapeLeft</string>
         <string>UIInterfaceOrientationLandscapeRight</string>
     </array>
