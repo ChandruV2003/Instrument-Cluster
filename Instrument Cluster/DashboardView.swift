@@ -40,7 +40,9 @@ struct DashboardView: View {
                 app.isCalibrated = false 
             }
             .onChange(of: location.lastLocation) { _, newLoc in
-                handleLocationChange(newLoc)
+                Task {
+                    await handleLocationChange(newLoc)
+                }
             }
             .onChange(of: scenePhase) { _, phase in
                 handleScenePhaseChange(phase)
