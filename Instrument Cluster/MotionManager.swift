@@ -41,7 +41,11 @@ final class MotionManager: ObservableObject {
     }
     
     deinit {
-        UIDevice.current.endGeneratingDeviceOrientationNotifications()
+        // Cleanup orientation notifications
+        // Note: Using MainActor.assumeIsolated since this is safe cleanup code
+        MainActor.assumeIsolated {
+            UIDevice.current.endGeneratingDeviceOrientationNotifications()
+        }
     }
     
     func start() {
