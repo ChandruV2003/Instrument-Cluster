@@ -12,15 +12,13 @@ struct TiltIndicator: View {
             let rollR = -displayTilt.roll * .pi / 180
             
             ZStack {
-                // Static outer ring - Metal accelerated
+                // Static outer ring
                 Circle()
                     .stroke(.secondary.opacity(0.3), lineWidth: 2)
-                    .drawingGroup()
                 
                 // Horizon line with pitch offset
                 HorizonLine(pitch: displayTilt.pitch, width: w, height: h)
                     .rotationEffect(.radians(rollR))
-                    .drawingGroup()
                 
                 // Numerical readout with monospaced digits
                 VStack(spacing: 2) {

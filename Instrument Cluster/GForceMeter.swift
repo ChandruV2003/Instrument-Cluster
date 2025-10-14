@@ -20,16 +20,15 @@ struct GForceMeter: View {
             let vy = CGFloat(displayVector.dy).clamped(to: -1...1)
             
             ZStack {
-                // Static rings - no animation, Metal accelerated
+                // Static rings - no animation
                 RingsView()
-                    .drawingGroup()
                 
                 // Live dot with smooth animation
                 Circle()
-                    .fill(Color.accentColor)
-                    .frame(width: 14, height: 14)
+                    .fill(Color.blue)
+                    .frame(width: 16, height: 16)
                     .position(x: R + vx * R, y: R - vy * R)
-                    .shadow(color: Color.accentColor.opacity(0.6), radius: 4)
+                    .shadow(color: Color.blue.opacity(0.8), radius: 6)
                 
                 // Ghost peak dot with fade
                 if ghostOpacity > 0.1 {
@@ -56,7 +55,6 @@ struct GForceMeter: View {
                 displayVector = gVector
             }
         }
-        .drawingGroup() // Enable Metal rendering for entire view
     }
     
     private func updateGVector(_ new: CGVector) {

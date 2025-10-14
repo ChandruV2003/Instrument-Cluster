@@ -44,7 +44,6 @@ struct SpeedometerView: View {
                     .rotation(.degrees(135))
                     .stroke(speedColour,
                             style: .init(lineWidth: trackW, lineCap: .round))
-                    .drawingGroup() // Metal acceleration
                 
                 // 3) Posted speed-limit notch
                 if let limit = speedLimit {
@@ -64,7 +63,6 @@ struct SpeedometerView: View {
                     sleeveOffset: sleeveOffset,
                     angle: needleAngle
                 )
-                .drawingGroup() // Metal acceleration
                 
                 // 5) Digital read-out
                 VStack(spacing: 0) {
@@ -122,7 +120,7 @@ private struct NeedleAssembly: View {
             // White needle
             Needle(radius: needleLen,
                    width: trackW * 0.32,
-                   colour: .primary,
+                   colour: .white,
                    angle: angle)
             
             // Grey tail
@@ -141,7 +139,7 @@ private struct NeedleAssembly: View {
             
             // Hub
             Circle()
-                .fill(Color.primary)
+                .fill(Color.white)
                 .frame(width: trackW * 0.8)
         }
     }
