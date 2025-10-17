@@ -495,3 +495,4 @@ The Instrument Cluster app has been completely modernized and optimized:
 
 **Built with ❤️ for Tesla Model Y owners who miss a proper instrument cluster!**
 
+
